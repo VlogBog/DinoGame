@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#16301f">
+  <title>Дино Праистория</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <div class="stage" id="stage">
+      <canvas id="game" aria-label="Игрално поле"></canvas>
+
+      <!-- Точки и рекорд -->
+      <div class="hud">
+        <div class="score-box best" id="bestBox">
+          <span class="label">Рекорд</span>
+          <span class="value" id="best">00000</span>
+        </div>
+        <div class="score-box" id="scoreBox">
+          <span class="label">Точки</span>
+          <span class="value" id="score">00000</span>
+        </div>
+        <button class="icon-btn" id="pauseBtn" type="button" aria-label="Пауза" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="currentColor"/><rect x="14" y="4" width="5" height="16" rx="1.5" fill="currentColor"/></svg>
+        </button>
+      </div>
+
+      <!-- Начален екран -->
+      <div class="overlay show" id="startScreen">
+        <div class="panel">
+          <h1 class="title">Дино <span>Праистория</span></h1>
+          <p class="tagline">Бягай, прескачай и подобри рекорда си!</p>
+          <ul class="controls desktop-only">
+            <li><kbd>Space</kbd> / <kbd>↑</kbd> скок</li>
+            <li><kbd>↓</kbd> навеждане</li>
+            <li><kbd>P</kbd> пауза</li>
+          </ul>
+          <ul class="controls touch-only">
+            <li>👆 Докосни – скок</li>
+            <li>👇 Плъзни надолу – навеждане</li>
+          </ul>
+          <button class="btn" type="button">Играй</button>
+        </div>
+      </div>
+
+      <!-- Пауза -->
+      <div class="overlay" id="pauseScreen">
+        <div class="panel">
+          <h2 class="title">Пауза</h2>
+          <button class="btn" type="button">Продължи</button>
+        </div>
+      </div>
+
+      <!-- Край на играта -->
+      <div class="overlay" id="gameOverScreen">
+        <div class="panel">
+          <h2 class="title over">Край на играта!</h2>
+          <div class="stats">
+            <div class="stat">
+              <span class="label">Точки</span>
+              <span class="value" id="finalScore">00000</span>
+            </div>
+            <div class="stat">
+              <span class="label">Рекорд</span>
+              <span class="value gold" id="finalBest">00000</span>
+            </div>
+          </div>
+          <p class="badge" id="newRecord" hidden>🏆 Нов рекорд!</p>
+          <button class="btn" type="button">Играй отново</button>
+          <p class="hint desktop-only">или натисни <kbd>Space</kbd></p>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-hint desktop-only">
+      <kbd>Space</kbd> / <kbd>↑</kbd> скок &nbsp;·&nbsp; <kbd>↓</kbd> навеждане &nbsp;·&nbsp; <kbd>P</kbd> пауза
+    </p>  </main>
+
+  <noscript>Играта изисква включен JavaScript.</noscript>
+  <script src="game.js"></script>
+</body>
+</html>
